@@ -25,7 +25,7 @@ def handle_register_user():
     return jsonify({"message": "Account created successfully"}), 200
 
 @app.route("/login_user", methods=["POST"])
-def handle_register_user():
+def handle_login_user():
     data = request.get_json(silent=True)
     
     if not data:
@@ -36,12 +36,12 @@ def handle_register_user():
     if "password" not in data:
         return jsonify({"error": "request has no password"}), 400
 
-    if data["username"] not in user_records:
+    if data["username"] not in user_logins:
         return jsonify({"error": "username not found"}), 404
 
-    if user_logins[data["username"]]["password"] != data["password"] {
-        return jsonify({"error": "password incorrect"}), 400
-    }
+    if user_logins[data["username"]]["password"] != data["password"]:
+        return jsonify({"error": "password incorrect"}), 401
+    
 
     return jsonify({"message": "Login successful"}), 200
 
