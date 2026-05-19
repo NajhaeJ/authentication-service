@@ -24,3 +24,7 @@ To programmatically request data, initiate an HTTP POST request to either the /r
 ## how to recieve
 To programmatically receive and process the data, your application must evaluate the HTTP status code returned by the server before parsing the response body. If the operation is successful, the server returns a 200 status code along with a JSON object containing a success message, which you can extract in Python using 
 response.json()["key"]
+
+## UML diagram
+
+![UML diagram](uml.png)
