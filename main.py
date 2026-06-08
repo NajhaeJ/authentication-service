@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify
 import random
+import os
 
 app = Flask(__name__)
 
@@ -50,4 +51,5 @@ def handle_login_user():
     return jsonify({"message": "Login successful"}), 200
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5001))
+    app.run(host="0.0.0.0", port=port, debug=True)
